@@ -7,6 +7,9 @@ auth_namespace = Namespace('auth', description="Namespace for authentication")
 class SignUp(Resource):
 
     def post(self):
+        """
+        Create new user
+        """
         pass
 
 
@@ -14,4 +17,7 @@ class SignUp(Resource):
 class Login(Resource):
 
     def post(self):
+        """
+        Generate a JWT pair
+        """
         pass
