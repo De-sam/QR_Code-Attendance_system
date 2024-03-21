@@ -6,7 +6,7 @@ cd ./backend
 # Check if venv directory already exists
 if [ ! -d "venv" ]; then
     # Create a virtual environment named venv inside the backend directory
-    python -m venv venv
+    python3 -m venv venv
 fi
 
 # Activate the virtual environment
