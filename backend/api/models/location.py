@@ -11,7 +11,7 @@ class Location(db.Model):
     Long= db.Column(db.Text(), nullable=False)
     Lat= db.Column(db.Boolean(), default=False)
     Alias= db.Column(db.Boolean(), default=True)
-      CreatedAt = db.Column(db.DateTime(), default=datetime.utcnow())
+    CreatedAt = db.Column(db.DateTime(), default=datetime.utcnow())
     UpdatedAt = db.Column(db.DateTime(), default=datetime.utcnow())
 
     def __repr__(self):
