@@ -10,9 +10,9 @@ class AttendanceReport(db.Model):
     Date = db.Column(db.Date)
     ClockInTime = db.Column(db.Time)
     ClockOutTime = db.Column(db.Time)
-    Created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    Updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    user = db.relationship('User', backref=db.backref('attendance_reports', lazy=True))
+    CreatedAt = db.Column(db.DateTime, default=datetime.utcnow)
+    UpdatedAt = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    User = db.relationship('User', backref=db.backref('attendance_reports', lazy=True))
 
     def __repr__(self):
         return f"<AttendanceReport Date='{self.Date}', Username='{self.user.username}', TimeIn='{self.ClockInTime}', TimeOut='{self.ClockOutTime}'>"
