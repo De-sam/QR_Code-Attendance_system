@@ -16,7 +16,7 @@ class User(db.Model):
     Email = db.Column(db.String(50), nullable=False, unique=True)
     UserImage = db.Column(db.String(20), nullable=False , default="default.jpg")
     PasswordHash = db.Column(db.Text(), nullable=False)
-    Company = db.relationship('company' , backref='user')
+    Company = db.column(db.integer, db,ForeignKey=('company'))
     IsStaff = db.Column(db.Boolean(), default=False)
     IsActive = db.Column(db.Boolean(), default=True)
     IsAdmin = db.Column(db.Boolean, default=False)
