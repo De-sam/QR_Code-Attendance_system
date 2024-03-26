@@ -1,14 +1,22 @@
 from ..utils import db
 from datetime import datetime
+from company import Company
+from location import Location
 
+user_location_association = db.Table('user_location_association',
+    db.Column('user_id', db.Integer, db.ForeignKey('user.UserID'), primary_key=True),
+    db.Column('location_id', db.Integer, db.ForeignKey('location.LocationID'), primary_key=True)
+)
 
 class User(db.Model):
 
-    __tablename__ = 'users'
+    __tablename__ = 'user'
     UserID = db.Column(db.Integer(), primary_key=True)
     Username = db.Column(db.String(45), nullable=False, unique=True)
     Email = db.Column(db.String(50), nullable=False, unique=True)
-    Password_hash = db.Column(db.Text(), nullable=False)
+    UserImage = db.Column(db.String(20), nullable=False , default="default.jpg")
+    PasswordHash = db.Column(db.Text(), nullable=False)
+    Company = db.relationship('company' , backref='user')
     IsStaff = db.Column(db.Boolean(), default=False)
     IsActive = db.Column(db.Boolean(), default=True)
     IsAdmin = db.Column(db.Boolean, default=False)
@@ -18,7 +26,7 @@ class User(db.Model):
     UpdatedAt = db.Column(db.DateTime(), default=datetime.utcnow())
 
     def __repr__(self):
-     return f"<User username='{self.Username}', email='{self.Email}', active='{self.IsActive}'>"
+     return f"<User username='{self.Username}', email='{self.Email}', active='{self.IsActive}', UserImage='{self.UserImage}'>"
 
 
     def save(self):
