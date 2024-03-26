@@ -13,7 +13,7 @@ class Location(db.Model):
 
     __tablename__ = 'location'
     LocationID = db.Column(db.Integer(), primary_key=True)
-    CompanyID = db.column(db.Integer, db.ForeignKey('company.id'), nullable=False)
+    CompanyID = db.Column(db.Integer, db.ForeignKey('company.id'), nullable=False)
     users = db.relationship('User', secondary=user_location_association, backref='locations')
     Company = db.relationship('company', backref='location')
     LocationName= db.Column(db.String(45), nullable=False, )

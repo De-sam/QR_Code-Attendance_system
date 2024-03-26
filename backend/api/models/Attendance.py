@@ -4,7 +4,7 @@ from users import User
 
 
 class AttendanceReport(db.Model):
-    __tablename__ = 'attendance_report'
+    __tablename__ = 'attendancereport'
     ReportID = db.Column(db.Integer, primary_key=True)
     UserID = db.Column(db.Integer, db.ForeignKey('users.UserID'))
     Date = db.Column(db.Date)
@@ -12,7 +12,7 @@ class AttendanceReport(db.Model):
     ClockOutTime = db.Column(db.Time)
     CreatedAt = db.Column(db.DateTime, default=datetime.utcnow)
     UpdatedAt = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    User = db.relationship('User', backref=db.backref('attendance_reports', lazy=True))
+    UserID = db.column(db.Integer, db.ForeignKey('user.UserID')
 
     def __repr__(self):
         return f"<AttendanceReport Date='{self.Date}', Username='{self.user.username}', TimeIn='{self.ClockInTime}', TimeOut='{self.ClockOutTime}'>"

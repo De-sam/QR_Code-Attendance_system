@@ -6,7 +6,7 @@ from location import Location
 class Company(db.Model):
 
     __tablename__ = 'Comapny'
-    CompanyID = db.column(db.int()) 
+    CompanyID = db.Column(db.int()) 
     CompanyName = db.Column(db.string, nuallable =False , unique=True ) 
     CreatedAt = db.Column(db.DateTime(), default=datetime.utcnow())
     UpdatedAt = db.Column(db.DateTime(), default=datetime.utcnow())
