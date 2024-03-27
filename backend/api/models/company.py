@@ -1,11 +1,11 @@
 from ..utils import db
 from datetime import datetime
-from location import Location
+from .location import Location
 
 
 class Company(db.Model):
 
-    __tablename__ = 'Comapny'
+    __tablename__ = 'Company'
     CompanyID = db.Column(db.int()) 
     CompanyName = db.Column(db.string, nuallable =False , unique=True ) 
     CreatedAt = db.Column(db.DateTime(), default=datetime.utcnow())

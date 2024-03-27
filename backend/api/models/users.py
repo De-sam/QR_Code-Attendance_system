@@ -1,7 +1,7 @@
 from ..utils import db
 from datetime import datetime
-from company import Company
-from location import Location
+from .company import Company
+from .location import Location
 
 user_location_association = db.Table('user_location_association',
     db.Column('user_id', db.Integer, db.ForeignKey('user.UserID'), primary_key=True),

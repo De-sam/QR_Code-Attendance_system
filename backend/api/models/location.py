@@ -1,7 +1,7 @@
 from ..utils import db
 from datetime import datetime
-from users import User
-from company import Company
+from .users import User
+from .company import Company
 
  # Define association table for the many-to-many relationship between User and Location
 user_location_association = db.Table('user_location_association',
