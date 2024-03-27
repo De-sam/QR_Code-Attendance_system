@@ -3,10 +3,9 @@ from flask_restx import Api
 from .auth.views import auth_namespace
 from .config.config import config_dict
 from .utils import db
-from .models.users import User
+from .models import User
 from flask_migrate import Migrate
-from .models.location import Location
-from .models.company import Company
+
 
 def create_app(config=config_dict['dev']):
 
@@ -23,8 +22,6 @@ def create_app(config=config_dict['dev']):
         return {
             'db': db,
             'User': User,
-            'Location': Location,
-
         }
 
     return app

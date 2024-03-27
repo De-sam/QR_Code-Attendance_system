@@ -3,7 +3,7 @@ from datetime import datetime
 from .users import User
 from .company import Company
 
- # Define association table for the many-to-many relationship between User and Location
+# Define association table for the many-to-many relationship between User and Location
 user_location_association = db.Table('user_location_association',
     db.Column('user_id', db.Integer, db.ForeignKey('user.UserID'), primary_key=True),
     db.Column('location_id', db.Integer, db.ForeignKey('location.LocationID'), primary_key=True)
