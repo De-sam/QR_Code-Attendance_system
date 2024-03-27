@@ -1,6 +1,6 @@
 from flask import request
 from flask_restx import Namespace, Resource, fields
-from ..models.users import User
+from ..models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from http import HTTPStatus
 

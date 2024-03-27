@@ -3,7 +3,7 @@ from flask_restx import Api
 from .auth.views import auth_namespace
 from .config.config import config_dict
 from .utils import db
-from .models import User
+from .models import Admins, AttendanceReport, Roles, User, Location, Company, ClockingEvent, QRCode
 from flask_migrate import Migrate
 
 
@@ -21,7 +21,14 @@ def create_app(config=config_dict['dev']):
     def make_shell_context():
         return {
             'db': db,
-            'User': User,
+            'admin': Admins,
+            'attendance_report': AttendanceReport,
+            'qrcode': QRCode,
+            'user': User,
+            'location': Location,
+            'company': Company,
+            'clocking_event': ClockingEvent,
+            'role': Roles
         }
 
     return app
