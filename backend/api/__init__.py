@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restx import Api
-from .auth.views import auth_namespace
+from .routes.auth import auth_namespace
 from .config.config import config_dict
 from .utils import db
 from .models import Admins, AttendanceReport, Roles, User, Location, Company, ClockingEvent, QRCode
@@ -15,7 +15,7 @@ def create_app(config=config_dict['dev']):
     migrate = Migrate(app, db)
     api = Api(app)
 
-    api.add_namespace(auth_namespace, path='/auth')
+    api.add_namespace(auth_namespace, path='/api/v1/auth')
 
     @app.shell_context_processor
     def make_shell_context():

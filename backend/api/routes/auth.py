@@ -4,7 +4,7 @@ from ..models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from http import HTTPStatus
 
-auth_namespace = Namespace('auth', description="Namespace for authentication")
+auth_namespace = Namespace('Authentication', description="Namespace for authentication")
 signup_schema = auth_namespace.model(
     'SignUp', {
         'id': fields.Integer(description="User Identification Number"),
