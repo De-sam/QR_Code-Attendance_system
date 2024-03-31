@@ -5,6 +5,7 @@ from .config.config import config_dict
 from .utils import db
 from .models import Admins, AttendanceReport, Roles, User, Location, Company, ClockingEvent, QRCode
 from flask_migrate import Migrate
+from flask_jwt_extended import JWTManager
 
 
 def create_app(config=config_dict['dev']):
@@ -13,9 +14,10 @@ def create_app(config=config_dict['dev']):
     app.config.from_object(config)
     db.init_app(app)
     migrate = Migrate(app, db)
-    api = Api(app)
+    api = Api(app, prefix='/api/v1')
+    jwt = JWTManager(app)
 
-    api.add_namespace(auth_namespace, path='/api/v1/auth')
+    api.add_namespace(auth_namespace, path='/auth')
 
     @app.shell_context_processor
     def make_shell_context():

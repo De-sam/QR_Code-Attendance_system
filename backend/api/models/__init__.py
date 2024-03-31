@@ -38,9 +38,9 @@ class User(db.Model):
     __tablename__ = 'users'
 
     UserID = db.Column(db.Integer(), primary_key=True)
-    Username = db.Column(db.String(45), nullable=False, unique=True)
+    Username = db.Column(db.String(50), nullable=False, unique=True)
     Email = db.Column(db.String(50), nullable=False, unique=True)
-    UserImage = db.Column(db.String(20), nullable=False, default="default.jpg")
+    UserImage = db.Column(db.Text(), nullable=True, default="default.jpg")
     PasswordHash = db.Column(db.Text(), nullable=False)
     CompanyID = db.Column(db.Integer(), db.ForeignKey('companies.CompanyID'))
     RoleID = db.Column(db.Integer(), db.ForeignKey('roles.RoleID'))
